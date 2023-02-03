@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>RSS News Feed</title>
+  </head>
+  <body>
+    <h1>RSS News Feed</h1>
+    <div id="news"></div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/xml2js"></script> -->
+    <!-- <script type = "module" src=./fetchRSS.js"></script> -->
+    <script>
+
+        // import axios from 'axios';
+
+        // // URL for the CNN RSS feed
+        // const rssFeedURL = 'https://rss.cnn.com/rss/cnn_topstories.rss';
+
+        // // Use Axios to retrieve the RSS feed
+        // axios.get(rssFeedURL)
+        //   .then(response => {
+        //     // Log the response data
+        //     console.log(response.data);
+        //   })
+        //   .catch(error => {
+        //     // Log the error message
+        //     console.error(error);
+        //   });
+
+
+    const RSS_URL = `https://codepen.io/picks/feed/`;
+
+    fetch(RSS_URL)
+      .then(response => response.text())
+      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then(data => console.log(data))
+
+  //     var rss = "http://rss.cnn.com/rss/edition.rss"
+  //   axios.get(rss)
+  //        .then(response => {
+  //   // Parse the XML data using xml2js
+  //      console.log(response.data)
+  // //   const parser = new xml2js.Parser();
+  // //   console.log(parser)
+  // //   parser.parseString(response.data, (err, result) => {
+  // //     // The RSS data is stored in the 'channel' key of the resulting object
+  // //     const rssData = result.rss.channel[0];
+      
+  // //     // Do something with the RSS data, for example, display the titles of the articles
+  // //     rssData.item.forEach(item => {
+  // //       console.log(item.title[0]);
+  // //     });
+  // //   });
+  // // })
+  // // .catch(error => {
+  // //   console.log(error);
+  // });
+
+//   function subscribe(link) {
+//     // you can add your code here to save the subscribed link to local storage or send it to the server to save it in the database
+//   alert(`You have subscribed to ${link}`);
+// }
+  </script>
+  </body>
+</html>
